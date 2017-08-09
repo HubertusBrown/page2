@@ -1,0 +1,10 @@
+<div *ngIf="!editMode"><img src="{{link.getIcon()}}" style="width: 10px; height: 10px; margin-right: 10px">
+  <a [href]="link.getUrl()">{{link.getName()}}</a>
+  <span style="float: right">
+  <a (click)="onEdit()" style="cursor: pointer"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a (click)="onDelete()" style="cursor: pointer"><span class="glyphicon glyphicon-trash"></span></a>
+  </span>
+</div>
+<div *ngIf="editMode">
+  <app-link-item-edit [link]="link" (finishedEditing)="onFinishedEditing($event)"></app-link-item-edit>
+</div>

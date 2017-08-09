@@ -1,0 +1,20 @@
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <br><br>
+
+      <div class="form-group">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon" id="sizing-addon-url">URL</span>
+          <input type="text" class="form-control" aria-describedby="sizing-addon-url" name="url"  required ngModel="{{link.getUrl()}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon" id="sizing-addon-name">Name</span>
+          <input type="text" class="form-control" aria-describedby="sizing-addon-name" name="name"  required ngModel="{{link.getName()}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-xs" type="submit" style="float:right">{{submitButtonText}}</button>
+      </div>
+
+    </form>

@@ -1,0 +1,60 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title" *ngIf="!editMode">{{group.getName()}}
+      <span class="glyphicon glyphicon-chevron-right" style="float: right; cursor: pointer" (click)="onShiftRight()"></span>
+      <span class="glyphicon glyphicon-chevron-left" style="float: right; cursor: pointer" (click)="onShiftLeft()"></span>
+    </div>
+    <div *ngIf="editMode"><input [(ngModel)]="groupName" style="color: black"></div>
+
+  </div>
+  <div class="panel-body">
+
+    <div *ngFor="let item of group.getItems();">
+      <app-link-item *ngIf="isLink()" [link]="item" [groupId]="group.getId()"></app-link-item>
+      <app-task-item *ngIf="isTask()" [task]="item" [groupId]="group.getId()"></app-task-item>
+    </div>
+
+
+
+    <!--<form (ngSubmit)="onAddLink()" #f="ngForm" *ngIf="addingEnabled">
+      <br><br>
+
+      <div class="form-group">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon" id="sizing-addon-url">URL</span>
+          <input type="text" class="form-control" aria-describedby="sizing-addon-url" name="url" ngModel required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon" id="sizing-addon-name">Name</span>
+          <input type="text" class="form-control" aria-describedby="sizing-addon-name" name="name" ngModel required>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-xs" type="submit" style="float:right">Add Link</button>
+      </div>
+
+    </form>-->
+
+  </div>
+  <div class="panel-footer" (mouseenter)="hover = true" (mouseleave)="hover=false">
+
+
+    <div class="button-group">
+      <button *ngIf="hover || editMode" type="button" class="btn-xs btn-default" (click)="onEdit()">{{editButtonText}}</button>
+
+
+
+      <button *ngIf="editMode" type="button" class="btn-xs btn-success" (click)="onAdd()">{{addButtonText}}</button>
+      <button *ngIf="editMode" class="btn-xs btn-danger" style="float: right" (click)="onDeleteGroup()">Delete Group</button>
+
+
+    </div>
+
+
+
+  </div>
+
+</div>

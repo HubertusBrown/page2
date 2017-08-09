@@ -1,0 +1,6 @@
+<div class="row">
+    <div *ngFor="let group of groups" class="col-md-2">
+        <app-link-panel *ngIf="isLinkGroup(group)" [group]="group"></app-link-panel>
+        <app-task-panel *ngIf="isTaskGroup(group)"[group]="group"></app-task-panel>
+    </div>
+</div>
